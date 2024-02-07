@@ -33,15 +33,31 @@
       margin-bottom: 10px;
     }
 
-    .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #ff00ff;
-      color: #00ff00;
-      text-decoration: none;
-      font-size: 24px;
-      margin-top: 20px;
-    }
+    
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ff00ff;
+        color: #000000;
+        text-decoration: none;
+        font-size: 24px;
+        margin-top: 20px;
+        position: relative;
+        border: 3px solid black; /* Add this line to give the button a black border */
+      }
+
+      .button::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background-color: #ff00ff;
+        box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+        z-index: -1;
+      }
+
 
     .button:hover {
       background-color: #ff66ff;
@@ -52,10 +68,127 @@
   <table>
     <tr>
       <td>
-        <marquee><h1>Welcome to My Vehicle's Social Media</h1></marquee>
-        <blink><p>Follow us for the latest updates and photos of my awesome vehicle!</p></blink>
-        <a href="#" class="button">Follow</a>
+        <div style="background-color: red;">
+          <marquee behavior="scroll" direction="left" scrollamount="10" style="width: 100%;">
+            <h1 style="background-color: red; text-align: center; color: black;">shitty website for the datsun</h1>
+          </marquee>
+      </div>
+        <blink><p style="background-color: red; text-align: center; animation: blink 1s infinite; color: black;">Follow us for the latest updates and photos of the zcar!</p></blink>
+        <div style="display: flex; justify-content: center;">
+          <a href="#" class="button">Follow on instagram!</a>
+        </div>
         <!--TODO make button link to instagram -->
+<br>
+<hr>
+<br>      
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
+  .grid-item {
+    text-align: center;
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+<div class="grid-container" id="imageGrid">
+  <div class="grid-item">
+    <img src="" alt="Image 1">
+    <p>Description for Image 1</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 2">
+    <p>Description for Image 2</p>
+  </div>
+</div>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
+  .grid-item {
+    text-align: center;
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+<div class="grid-container" id="imageGrid">
+  <div class="grid-item">
+    <img src="" alt="Image 1">
+    <p>Description for Image 1</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 2">
+    <p>Description for Image 2</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 3">
+    <p>Description for Image 3</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 4">
+    <p>Description for Image 4</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 5">
+    <p>Description for Image 5</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 6">
+    <p>Description for Image 6</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 7">
+    <p>Description for Image 7</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 8">
+    <p>Description for Image 8</p>
+  </div>
+  <div class="grid-item">
+    <img src="" alt="Image 9">
+    <p>Description for Image 9</p>
+  </div>
+</div>
+
+<script>
+  // Get the container element
+  const imageGrid = document.getElementById('imageGrid');
+
+  // Fetch random dog images from the API
+  fetch('https://dog.ceo/api/breeds/image/random/9')
+    .then(response => response.json())
+    .then(data => {
+      const images = data.message;
+
+      // Assign the image sources dynamically
+      const gridItems = imageGrid.getElementsByClassName('grid-item');
+      for (let i = 0; i < gridItems.length; i++) {
+        const img = gridItems[i].getElementsByTagName('img')[0];
+        img.src = images[i];
+      }
+    });
+</script>
+
+        <style>
+          @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+        </style>
       </td>
     </tr>
   </table>
